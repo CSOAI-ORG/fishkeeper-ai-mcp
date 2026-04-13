@@ -1,0 +1,10 @@
+name: fishkeeper-ai-mcp
+description: "MEOK AI Labs — Built by MEOK AI Labs | https://fishkeeper.ai"
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/fishkeeper-ai-mcp
+license: MIT
+categories: [Hobbies, Aquarium]
+tags: [aquarium, fishkeeping, water-parameters, aquaculture, pet-fish]
+runtime: python
+entrypoint: server.py

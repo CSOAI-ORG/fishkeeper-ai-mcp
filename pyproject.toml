@@ -5,36 +5,25 @@ build-backend = "hatchling.build"
 [project]
 name = "fishkeeper-ai-mcp"
 version = "1.0.0"
-description = "MCP server for aquarium management - water analysis, fish ID, compatibility, disease diagnosis, stocking"
+description = "MEOK AI Labs — Built by MEOK AI Labs | https://fishkeeper.ai"
+authors = [{name="MEOK AI Labs", email="nicholas@meok.ai"}]
 readme = "README.md"
-license = "MIT"
+license = {text = "MIT"}
 requires-python = ">=3.10"
-authors = [
-    { name = "MEOK AI Labs", email = "hello@meok.ai" },
-]
-keywords = ["mcp", "aquarium", "fishkeeping", "aquaculture", "water-quality", "fishkeeper"]
+keywords = ["mcp", "mcp-server", "model-context-protocol", "claude", "ai-tools", "meok-ai-labs", "aquarium", "fishkeeping", "water-parameters", "aquaculture", "pet-fish"]
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Developers",
 ]
 dependencies = [
     "mcp>=1.0.0",
 ]
 
 [project.urls]
-Homepage = "https://fishkeeper.ai"
-Repository = "https://github.com/meok-ai/fishkeeper-ai-mcp"
-Documentation = "https://fishkeeper.ai/docs"
-Issues = "https://github.com/meok-ai/fishkeeper-ai-mcp/issues"
-
-[project.scripts]
-fishkeeper-ai-mcp = "server:mcp.run"
-
-[tool.hatch.build.targets.wheel]
-packages = ["."]
+Homepage = "https://meok.ai"
+Repository = "https://github.com/CSOAI-ORG/fishkeeper-ai-mcp"
+Documentation = "https://meok.ai/docs/fishkeeper-ai-mcp"
+"Bug Tracker" = "https://github.com/CSOAI-ORG/fishkeeper-ai-mcp/issues"
