@@ -13,10 +13,7 @@ from typing import Optional
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP(
-    "fishkeeper-ai",
-    version="1.0.0",
-    description="Aquarium management AI - water analysis, fish ID, compatibility, disease diagnosis",
-)
+    "fishkeeper-ai")
 
 # ---------------------------------------------------------------------------
 # Rate limiting
@@ -444,8 +441,7 @@ def analyze_water_params(
     temperature_c: float,
     gh_dgh: Optional[float] = None,
     kh_dgh: Optional[float] = None,
-    tank_type: str = "freshwater_tropical",
-) -> dict:
+    tank_type: str = "freshwater_tropical") -> dict:
     """Analyze aquarium water parameters and return health assessment.
 
     Compares readings against safe ranges for the tank type and provides
@@ -520,7 +516,7 @@ def analyze_water_params(
                     advice = "Perform 30-50% water change now. Dose water conditioner (Prime/Safe). Check filtration. Tank may not be cycled."
                 else:
                     status = "warning"
-                    if overall_status in ("healthy",):
+                    if overall_status in ("healthy"):
                         overall_status = "warning"
                     advice = "Trace ammonia detected. Do a 25% water change. Monitor daily. May indicate cycle disruption."
         elif name == "nitrite_ppm":
@@ -536,7 +532,7 @@ def analyze_water_params(
                     advice = "Perform 30% water change. Add salt (1 tsp per 5 gallons). Tank is still cycling or cycle crashed."
                 else:
                     status = "warning"
-                    if overall_status in ("healthy",):
+                    if overall_status in ("healthy"):
                         overall_status = "warning"
                     advice = "Trace nitrite. 25% water change, monitor daily."
         elif name == "nitrate_ppm":
@@ -548,44 +544,44 @@ def analyze_water_params(
                     advice = f"Nitrate very high. Do multiple 25% water changes over several days (don't shock fish). Reduce feeding. Add live plants. Clean substrate."
                 else:
                     status = "warning"
-                    if overall_status in ("healthy",):
+                    if overall_status in ("healthy"):
                         overall_status = "warning"
                     advice = f"Nitrate above ideal ({high} ppm max for {tank_type}). Do a 25-30% water change. Consider more plants or reducing stock."
         elif name == "ph":
             if value < low:
                 status = "warning"
-                if overall_status in ("healthy",):
+                if overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"pH low ({value}). Check KH (buffering capacity). Crushed coral or baking soda can raise pH. Do NOT adjust more than 0.2 per day."
             elif value > high:
                 status = "warning"
-                if overall_status in ("healthy",):
+                if overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"pH high ({value}). Can lower with driftwood, peat, or Indian almond leaves. Stable pH is more important than perfect pH."
         elif name == "temperature_c":
             if value < low:
                 status = "warning" if value > low - 3 else "danger"
-                if status == "danger" and overall_status not in ("critical",):
+                if status == "danger" and overall_status not in ("critical"):
                     overall_status = "danger"
-                elif overall_status in ("healthy",):
+                elif overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"Temperature low ({value}C). Check heater is working and correctly set. For {tank_type}, aim for {low}-{high}C."
             elif value > high:
                 status = "warning" if value < high + 3 else "danger"
-                if status == "danger" and overall_status not in ("critical",):
+                if status == "danger" and overall_status not in ("critical"):
                     overall_status = "danger"
-                elif overall_status in ("healthy",):
+                elif overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"Temperature high ({value}C). Increase surface agitation for oxygenation. Float ice packs in bag if needed."
         else:
             if value < low:
                 status = "warning"
-                if overall_status in ("healthy",):
+                if overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"{name} below ideal range ({low}-{high})."
             elif value > high:
                 status = "warning"
-                if overall_status in ("healthy",):
+                if overall_status in ("healthy"):
                     overall_status = "warning"
                 advice = f"{name} above ideal range ({low}-{high})."
 
@@ -623,8 +619,7 @@ def analyze_water_params(
 @mcp.tool()
 def identify_fish(
     description: Optional[str] = None,
-    species_name: Optional[str] = None,
-) -> dict:
+    species_name: Optional[str] = None) -> dict:
     """Identify fish species and return detailed care requirements.
 
     Search by common name, scientific name, or physical description.
@@ -808,8 +803,7 @@ def check_compatibility(species_list: list[str]) -> dict:
 def diagnose_disease(
     symptoms: list[str],
     species: Optional[str] = None,
-    water_params: Optional[dict] = None,
-) -> dict:
+    water_params: Optional[dict] = None) -> dict:
     """Diagnose fish disease from symptoms and suggest treatments.
 
     Matches symptoms against a database of common aquarium diseases and
@@ -902,8 +896,7 @@ def calculate_stocking(
     tank_length_cm: Optional[float] = None,
     species_list: Optional[list[dict]] = None,
     filtration_quality: str = "standard",
-    planted: bool = False,
-) -> dict:
+    planted: bool = False) -> dict:
     """Calculate maximum fish stocking for a tank.
 
     Uses a combination of inch-per-gallon baseline, bioload weighting,
@@ -1048,8 +1041,7 @@ def calculate_stocking(
 @mcp.tool()
 def get_feeding_schedule(
     species_list: list[str],
-    tank_type: str = "freshwater_tropical",
-) -> dict:
+    tank_type: str = "freshwater_tropical") -> dict:
     """Generate a feeding schedule based on species mix.
 
     Creates a practical daily/weekly feeding plan accounting for different
