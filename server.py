@@ -6,6 +6,11 @@ Water analysis, species identification, compatibility checking,
 disease diagnosis, stocking calculations, and feeding schedules.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import time
 from datetime import datetime, timezone
 from typing import Optional
@@ -441,7 +446,7 @@ def analyze_water_params(
     temperature_c: float,
     gh_dgh: Optional[float] = None,
     kh_dgh: Optional[float] = None,
-    tank_type: str = "freshwater_tropical") -> dict:
+    tank_type: str = "freshwater_tropical", api_key: str = "") -> dict:
     """Analyze aquarium water parameters and return health assessment.
 
     Compares readings against safe ranges for the tank type and provides
@@ -460,6 +465,10 @@ def analyze_water_params(
     Returns:
         Health assessment with parameter-by-parameter analysis and recommendations.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded. Upgrade to Pro at https://fishkeeper.ai/pricing"}
 
@@ -619,7 +628,7 @@ def analyze_water_params(
 @mcp.tool()
 def identify_fish(
     description: Optional[str] = None,
-    species_name: Optional[str] = None) -> dict:
+    species_name: Optional[str] = None, api_key: str = "") -> dict:
     """Identify fish species and return detailed care requirements.
 
     Search by common name, scientific name, or physical description.
@@ -631,6 +640,10 @@ def identify_fish(
     Returns:
         Species details including care requirements, water parameters, compatibility.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded."}
 
@@ -660,7 +673,7 @@ def identify_fish(
 
 
 @mcp.tool()
-def check_compatibility(species_list: list[str]) -> dict:
+def check_compatibility(species_list: list[str], api_key: str = "") -> dict:
     """Check if multiple fish species are compatible in the same tank.
 
     Analyzes temperament, water parameter overlap, size differences,
@@ -672,6 +685,10 @@ def check_compatibility(species_list: list[str]) -> dict:
     Returns:
         Compatibility matrix with warnings and recommended tank parameters.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded."}
 
@@ -803,7 +820,7 @@ def check_compatibility(species_list: list[str]) -> dict:
 def diagnose_disease(
     symptoms: list[str],
     species: Optional[str] = None,
-    water_params: Optional[dict] = None) -> dict:
+    water_params: Optional[dict] = None, api_key: str = "") -> dict:
     """Diagnose fish disease from symptoms and suggest treatments.
 
     Matches symptoms against a database of common aquarium diseases and
@@ -817,6 +834,10 @@ def diagnose_disease(
     Returns:
         Possible diagnoses ranked by symptom match, with treatment plans.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded."}
 
@@ -896,7 +917,7 @@ def calculate_stocking(
     tank_length_cm: Optional[float] = None,
     species_list: Optional[list[dict]] = None,
     filtration_quality: str = "standard",
-    planted: bool = False) -> dict:
+    planted: bool = False, api_key: str = "") -> dict:
     """Calculate maximum fish stocking for a tank.
 
     Uses a combination of inch-per-gallon baseline, bioload weighting,
@@ -912,6 +933,10 @@ def calculate_stocking(
     Returns:
         Stocking assessment with bioload percentage and recommendations.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded."}
 
@@ -1041,7 +1066,7 @@ def calculate_stocking(
 @mcp.tool()
 def get_feeding_schedule(
     species_list: list[str],
-    tank_type: str = "freshwater_tropical") -> dict:
+    tank_type: str = "freshwater_tropical", api_key: str = "") -> dict:
     """Generate a feeding schedule based on species mix.
 
     Creates a practical daily/weekly feeding plan accounting for different
@@ -1054,6 +1079,10 @@ def get_feeding_schedule(
     Returns:
         Detailed feeding schedule with food types, amounts, and timing.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _check_rate_limit():
         return {"error": "Rate limit exceeded."}
 

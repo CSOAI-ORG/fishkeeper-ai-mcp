@@ -1,10 +1,86 @@
 name: fishkeeper-ai-mcp
-description: "MEOK AI Labs — Built by MEOK AI Labs | https://fishkeeper.ai"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/fishkeeper-ai-mcp
-license: MIT
-categories: [Hobbies, Aquarium]
-tags: [aquarium, fishkeeping, water-parameters, aquaculture, pet-fish]
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: analyze_water_params
+  description: Analyze aquarium water parameters and return health assessment.
+  parameters:
+  - name: ph
+    type: number
+    required: true
+  - name: ammonia_ppm
+    type: number
+    required: true
+  - name: nitrite_ppm
+    type: number
+    required: true
+  - name: nitrate_ppm
+    type: number
+    required: true
+  - name: temperature_c
+    type: number
+    required: true
+  - name: gh_dgh
+    type: number
+    required: false
+  - name: kh_dgh
+    type: number
+    required: false
+  - name: tank_type
+    type: string
+    required: false
+- name: identify_fish
+  description: Identify fish species and return detailed care requirements.
+  parameters:
+  - name: description
+    type: string
+    required: false
+  - name: species_name
+    type: string
+    required: false
+- name: check_compatibility
+  description: Check if multiple fish species are compatible in the same tank.
+  parameters:
+  - name: species_list
+    type: array
+    required: true
+- name: diagnose_disease
+  description: Diagnose fish disease from symptoms and suggest treatments.
+  parameters:
+  - name: symptoms
+    type: array
+    required: true
+  - name: species
+    type: string
+    required: false
+  - name: water_params
+    type: object
+    required: false
+- name: calculate_stocking
+  description: Calculate maximum fish stocking for a tank.
+  parameters:
+  - name: tank_litres
+    type: number
+    required: true
+  - name: tank_length_cm
+    type: number
+    required: false
+  - name: species_list
+    type: array
+    required: false
+  - name: filtration_quality
+    type: string
+    required: false
+  - name: planted
+    type: boolean
+    required: false
+- name: get_feeding_schedule
+  description: Generate a feeding schedule based on species mix.
+  parameters:
+  - name: species_list
+    type: array
+    required: true
+  - name: tank_type
+    type: string
+    required: false

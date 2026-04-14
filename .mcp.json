@@ -1,25 +1,164 @@
 {
   "name": "fishkeeper-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Built by MEOK AI Labs | https://fishkeeper.ai",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/fishkeeper-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
   "tools": [
-    "analyze_water_params",
-    "identify_fish",
-    "check_compatibility",
-    "diagnose_disease",
-    "calculate_stocking",
-    "get_feeding_schedule"
-  ],
-  "categories": [
-    "Hobbies",
-    "Aquarium"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "analyze_water_params",
+      "description": "Analyze aquarium water parameters and return health assessment.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ph": {
+            "type": "number"
+          },
+          "ammonia_ppm": {
+            "type": "number"
+          },
+          "nitrite_ppm": {
+            "type": "number"
+          },
+          "nitrate_ppm": {
+            "type": "number"
+          },
+          "temperature_c": {
+            "type": "number"
+          },
+          "gh_dgh": {
+            "type": "number",
+            "nullable": true
+          },
+          "kh_dgh": {
+            "type": "number",
+            "nullable": true
+          },
+          "tank_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ph",
+          "ammonia_ppm",
+          "nitrite_ppm",
+          "nitrate_ppm",
+          "temperature_c"
+        ]
+      }
+    },
+    {
+      "name": "identify_fish",
+      "description": "Identify fish species and return detailed care requirements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "species_name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "check_compatibility",
+      "description": "Check if multiple fish species are compatible in the same tank.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "species_list": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "species_list"
+        ]
+      }
+    },
+    {
+      "name": "diagnose_disease",
+      "description": "Diagnose fish disease from symptoms and suggest treatments.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symptoms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "species": {
+            "type": "string",
+            "nullable": true
+          },
+          "water_params": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "required": [
+          "symptoms"
+        ]
+      }
+    },
+    {
+      "name": "calculate_stocking",
+      "description": "Calculate maximum fish stocking for a tank.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tank_litres": {
+            "type": "number"
+          },
+          "tank_length_cm": {
+            "type": "number",
+            "nullable": true
+          },
+          "species_list": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "nullable": true
+          },
+          "filtration_quality": {
+            "type": "string"
+          },
+          "planted": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "tank_litres"
+        ]
+      }
+    },
+    {
+      "name": "get_feeding_schedule",
+      "description": "Generate a feeding schedule based on species mix.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "species_list": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tank_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "species_list"
+        ]
+      }
+    }
+  ]
 }
