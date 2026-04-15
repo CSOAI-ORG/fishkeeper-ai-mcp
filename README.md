@@ -1,59 +1,34 @@
-# FishKeeper.AI MCP Server
+# FishKeeper AI MCP Server
 
-> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+> By [MEOK AI Labs](https://meok.ai) — Aquarium management AI for water analysis, species compatibility, and disease diagnosis
 
-Aquarium management intelligence. Analyze water parameters, identify fish species, check compatibility, diagnose diseases, calculate stocking levels, and generate feeding schedules.
-
-[![MCPize](https://img.shields.io/badge/MCPize-Listed-blue)](https://mcpize.com/mcp/fishkeeper-ai)
-[![MIT License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `analyze_water_params` | Analyze aquarium water parameters and return health assessment |
-| `identify_fish` | Identify fish species and return detailed care requirements |
-| `check_compatibility` | Check if multiple species are compatible in the same tank |
-| `diagnose_disease` | Diagnose fish disease from symptoms and suggest treatments |
-| `calculate_stocking` | Calculate maximum fish stocking for a tank |
-| `get_feeding_schedule` | Generate a feeding schedule based on species mix |
-
-## Quick Start
+## Installation
 
 ```bash
-pip install mcp
-git clone https://github.com/CSOAI-ORG/fishkeeper-ai-mcp.git
-cd fishkeeper-ai-mcp
+pip install fishkeeper-ai-mcp
+```
+
+## Usage
+
+```bash
 python server.py
 ```
 
-## Claude Desktop Config
+## Tools
 
-```json
-{
-  "mcpServers": {
-    "fishkeeper-ai": {
-      "command": "python",
-      "args": ["server.py"],
-      "cwd": "/path/to/fishkeeper-ai-mcp"
-    }
-  }
-}
-```
+This server provides aquarium management intelligence including:
 
-## Pricing
+- Water parameter analysis (pH, ammonia, nitrite, nitrate, temperature)
+- Species identification and care guides
+- Fish compatibility checking
+- Disease diagnosis and treatment recommendations
+- Stocking level calculations
+- Feeding schedule generation
 
-| Plan | Price | Requests |
-|------|-------|----------|
-| Free | $0/mo | 60 requests/month |
-| Pro | $9/mo | 5,000 requests/month |
+## Authentication
 
-[Get on MCPize](https://mcpize.com/mcp/fishkeeper-ai)
+Free tier: 60 calls/hour. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
 
-## Part of MEOK AI Labs
+## License
 
-This is one of 255+ MCP servers by MEOK AI Labs. Browse all at [meok.ai](https://meok.ai) or [GitHub](https://github.com/CSOAI-ORG).
-
----
-**MEOK AI Labs** | [meok.ai](https://meok.ai) | nicholas@meok.ai | United Kingdom
+MIT — MEOK AI Labs
