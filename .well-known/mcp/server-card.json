@@ -1,0 +1,60 @@
+{
+  "name": "fishkeeper-ai",
+  "description": "\u0001",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/fishkeeper-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "analyze_water_params",
+      "description": "Analyze aquarium water parameters and return health assessment."
+    },
+    {
+      "name": "identify_fish",
+      "description": "Identify fish species and return detailed care requirements."
+    },
+    {
+      "name": "check_compatibility",
+      "description": "Check if multiple fish species are compatible in the same tank."
+    },
+    {
+      "name": "diagnose_disease",
+      "description": "Diagnose fish disease from symptoms and suggest treatments."
+    },
+    {
+      "name": "calculate_stocking",
+      "description": "Calculate maximum fish stocking for a tank."
+    },
+    {
+      "name": "get_feeding_schedule",
+      "description": "Generate a feeding schedule based on species mix."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
