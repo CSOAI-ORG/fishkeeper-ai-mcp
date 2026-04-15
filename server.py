@@ -17,8 +17,7 @@ from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP(
-    "fishkeeper-ai")
+mcp = FastMCP("fishkeeper-ai", instructions="")
 
 # ---------------------------------------------------------------------------
 # Rate limiting

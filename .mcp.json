@@ -25,12 +25,10 @@
             "type": "number"
           },
           "gh_dgh": {
-            "type": "number",
-            "nullable": true
+            "type": "number"
           },
           "kh_dgh": {
-            "type": "number",
-            "nullable": true
+            "type": "number"
           },
           "tank_type": {
             "type": "string"
@@ -52,12 +50,10 @@
         "type": "object",
         "properties": {
           "description": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "species_name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "required": []
@@ -70,10 +66,7 @@
         "type": "object",
         "properties": {
           "species_list": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           }
         },
         "required": [
@@ -88,18 +81,13 @@
         "type": "object",
         "properties": {
           "symptoms": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "species": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "water_params": {
-            "type": "object",
-            "nullable": true
+            "type": "object"
           }
         },
         "required": [
@@ -117,15 +105,10 @@
             "type": "number"
           },
           "tank_length_cm": {
-            "type": "number",
-            "nullable": true
+            "type": "number"
           },
           "species_list": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            },
-            "nullable": true
+            "type": "array"
           },
           "filtration_quality": {
             "type": "string"
@@ -146,10 +129,7 @@
         "type": "object",
         "properties": {
           "species_list": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "tank_type": {
             "type": "string"
