@@ -1,6 +1,6 @@
 {
   "name": "fishkeeper-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 \u0001",
+  "description": "MCP server for fishkeeper ai. Features analyze water params, identify fish, check compatibility. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
