@@ -1,6 +1,4 @@
 """
-Buy Pro: https://www.csoai.org/checkout
-
 FishKeeper.AI MCP Server - Aquarium Management AI
 Built by MEOK AI Labs | https://fishkeeper.ai
 
