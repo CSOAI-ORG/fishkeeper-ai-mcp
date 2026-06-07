@@ -1,0 +1,77 @@
+{
+  "name": "fishkeeper-ai-mcp",
+  "description": "Fishkeeper Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/fishkeeper-ai-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "analyze_water_params",
+      "name": "Analyze Water Params",
+      "description": "analyze_water_params via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "identify_fish",
+      "name": "Identify Fish",
+      "description": "identify_fish via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_compatibility",
+      "name": "Check Compatibility",
+      "description": "check_compatibility via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "diagnose_disease",
+      "name": "Diagnose Disease",
+      "description": "diagnose_disease via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "calculate_stocking",
+      "name": "Calculate Stocking",
+      "description": "calculate_stocking via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_feeding_schedule",
+      "name": "Get Feeding Schedule",
+      "description": "get_feeding_schedule via fishkeeper-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
